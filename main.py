@@ -11,7 +11,8 @@ app.config['SECRET_KEY'] = os.environ.get('FLASK_KEY')
 Bootstrap(app)
 
 # SQLite database configuration
-app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get("DB_URI", "sqlite:///posts.db")
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DB_URI')
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False  # Disable SQLAlchemy event tracking
 db = SQLAlchemy(app)
 
 
