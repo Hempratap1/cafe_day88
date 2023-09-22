@@ -72,7 +72,8 @@ def add_cafe():
 
 @app.route('/')
 def home():
-    cafes = Cafe.query.all()
+    result = db.session.execute(db.select(Cafe))
+    cafes = result.scalars().all()
     return render_template('index.html', cafes=cafes)
 
 
