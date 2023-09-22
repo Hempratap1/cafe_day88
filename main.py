@@ -19,7 +19,7 @@ db.init_app(app)
 
 # Define the Cafe model
 class Cafe(db.Model):
-    __tablename__ = "cafe"
+    __tablename__ = 'Cafe'
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(100), nullable=False)
     map_url = db.Column(db.String(255), nullable=False)
