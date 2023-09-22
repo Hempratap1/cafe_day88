@@ -13,7 +13,8 @@ Bootstrap(app)
 # SQLite database configuration
 app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DB_URI')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False  # Disable SQLAlchemy event tracking
-db = SQLAlchemy(app)
+db = SQLAlchemy()
+db.init_app(app)
 
 
 # Define the Cafe model
