@@ -1,0 +1,109 @@
+{% extends 'base.html' %}
+
+{% block title %}Add a New Cafe{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <h2>Add a New Cafe</h2>
+    <form method="POST">
+        {{ form.hidden_tag() }}
+
+        <!-- Cafe Name -->
+<div class="mb-3">
+    {{ form.name.label(for="name", class="form-label") }}
+    {{ form.name(id="name", class="form-control", placeholder="Enter cafe name") }}
+    {% if form.name.errors %}
+    <div class="text-danger">
+        {{ form.name.errors | join(', ') }}
+    </div>
+    {% endif %}
+</div>
+
+<!-- Location URL -->
+<div class="mb-3">
+    {{ form.map_url.label(for="map_url", class="form-label") }}
+    {{ form.map_url(id="map_url", class="form-control", placeholder="Enter Google Maps URL") }}
+    {% if form.map_url.errors %}
+    <div class="text-danger">
+        {{ form.map_url.errors | join(', ') }}
+    </div>
+    {% endif %}
+</div>
+
+<!-- Image URL -->
+<div class="mb-3">
+    {{ form.img_url.label(for="img_url", class="form-label") }}
+    {{ form.img_url(id="img_url", class="form-control", placeholder="Enter cafe image URL") }}
+    {% if form.img_url.errors %}
+    <div class="text-danger">
+        {{ form.img_url.errors | join(', ') }}
+    </div>
+    {% endif %}
+</div>
+
+<!-- Location -->
+<div class="mb-3">
+    {{ form.location.label(for="location", class="form-label") }}
+    {{ form.location(id="location", class="form-control", placeholder="Enter cafe location") }}
+    {% if form.location.errors %}
+    <div class="text-danger">
+        {{ form.location.errors | join(', ') }}
+    </div>
+    {% endif %}
+</div>
+
+<!-- Has Sockets -->
+<div class="mb-3 form-check">
+    {{ form.has_sockets(id="has_sockets", class="form-check-input") }}
+    {{ form.has_sockets.label(class="form-check-label", for="has_sockets") }}
+</div>
+
+<!-- Has Toilet -->
+<div class="mb-3 form-check">
+    {{ form.has_toilet(id="has_toilet", class="form-check-input") }}
+    {{ form.has_toilet.label(class="form-check-label", for="has_toilet") }}
+</div>
+
+<!-- Has WiFi -->
+<div class="mb-3 form-check">
+    {{ form.has_wifi(id="has_wifi", class="form-check-input") }}
+    {{ form.has_wifi.label(class="form-check-label", for="has_wifi") }}
+</div>
+
+<!-- Can Take Calls -->
+<div class="mb-3 form-check">
+    {{ form.can_take_calls(id="can_take_calls", class="form-check-input") }}
+    {{ form.can_take_calls.label(class="form-check-label", for="can_take_calls") }}
+</div>
+
+
+<!-- Seats -->
+<div class="mb-3">
+    {{ form.seats.label(for="seats", class="form-label") }}
+    {{ form.seats(id="seats", class="form-control", placeholder="Enter number of seats") }}
+    {% if form.seats.errors %}
+    <div class="text-danger">
+        {{ form.seats.errors | join(', ') }}
+    </div>
+    {% endif %}
+</div>
+
+<!-- Coffee Price -->
+<div class="mb-3">
+    {{ form.coffee_price.label(for="coffee_price", class="form-label") }}
+    {{ form.coffee_price(id="coffee_price", class="form-control", placeholder="Enter coffee price") }}
+    {% if form.coffee_price.errors %}
+    <div class="text-danger">
+        {{ form.coffee_price.errors | join(', ') }}
+    </div>
+    {% endif %}
+</div>
+
+
+        <!-- Submit Button -->
+        <div class="mb-3">
+            {{ form.submit(class="btn btn-primary") }}
+        </div>
+    </form>
+</div>
+{% endblock %}
