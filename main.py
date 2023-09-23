@@ -48,6 +48,10 @@ class CafeForm(FlaskForm):
     submit = SubmitField('Submit')
 
 
+with app.app_context():
+    db.create_all()
+
+
 @app.route('/add', methods=["GET", "POST"])
 def add_cafe():
     form = CafeForm()
@@ -78,5 +82,5 @@ def home():
 
 
 if __name__ == '__main__':
-    app.run(debug=False)
+    app.run(debug=True)
 
